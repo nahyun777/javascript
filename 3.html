@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre id="text">
+
+    </pre>
+    <!-- p태그 입력시 줄바꿈은 안됨, pre 사용시 줄바꿈 됨 -->
+    <script>
+        //반복문
+        // = 대입
+        // document.getElementById('text').innerHTML  = '1\n'//\n줄바꿈
+        //+= 이어붙이기
+        // 반복문을 사용하는 방법
+        //for를 적고()안에 반복하고 싶은 횟수, {} 안에는 반복할 코드
+        //for(){}
+        for(var i = 0;i<10;i++){
+            //i++ ===> i=i=+1
+            //(임시변수;조건;증가량)
+            document.getElementById('text').innerHTML += '1\n'
+            //
+        }
+        //가운데 있는 조건이 틀릴때까지 계속 실행
+
+
+        // document.getElementById('text').innerHTML  += '2\n'
+        // document.getElementById('text').innerHTML  += '3\n'
+        // document.getElementById('text').innerHTML  += '4\n'
+        // document.getElementById('text').innerHTML  += '5\n'
+        // document.getElementById('text').innerHTML  += '6\n'
+        // document.getElementById('text').innerHTML  += '7\n'
+
+
+    </script>
+</body>
+</html>
