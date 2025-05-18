@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">클릭</button>
+    <script>
+        console.log(this)
+
+        document.getElementById('btn').addEventListener('click', ()=>{
+            alert(this) //window
+        })
+
+        let 오브젝트1 = {
+            '키':'값',
+            '일반함수':function(){
+                console.log(this) //오브젝트 1
+            },
+            '화살표함수':()=>{
+                console.log(this) //window
+            }
+        }
+
+        오브젝트1.일반함수()
+    </script>
+</body>
+</html>

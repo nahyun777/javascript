@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="content"/>
+    <br>
+    <button onclick="saveLocal()">로컬스토리지에 저장</button>
+    <button onclick="saveSession()">세션스토리지에 저장</button>
+    <hr>
+    <button onclick="loadLocal()">로컬스토리지 읽기</button>
+    <button onclick="loadSession()">세션스토리지 읽기</button>
+    <br>
+    <button onclick="deleteLocal()">로컬스토리지 삭제</button>
+    <button onclick="deleteSession()">세션스토리지 삭제</button>
+    <script>
+        //비회원 장바구니 담기(웹사이트에는 작은 공간 기록)
+        //로컬스토리지 localStoragr : 반영구적으로 웹사이트에 기록
+        //세션스토리지 sessionStorage : 웹사이트 껏다키면 없어짐
+
+        //localStorage.setItem('키워드', '저장할값')//웹사이트 저장
+        //localStorage.removeItem('키워드') //삭제,지우는값
+        //localStorage.getItem('키워드') //저장한 값 불러오기
+
+        // localStorage.setItem('로컬','저장하기')
+
+        //'로컬'이라는 값이 '저장하기'를 통해 웹사이트에 저장됨
+        //확인시 팝업창으로 확인가능
+        //웹사이트를 껏다가 켜도 마지막 값은 웹사이트에 항상 남아있음
+
+
+        // localStorage.removeItem('로컬')
+        //팝업창에 null값 확인가능
+
+        // let 변수 = localStorage.getItem('로컬')
+        // alert(변수) //웹사이트 팝업창으로 결과 값 출력됨
+
+        function saveLocal(){
+            let 변수 = document.getElementById('content').value;//input값은 value로 가져올 수 있다.
+            // alert(변수)
+            document.getElementById('content').value = '';
+
+            //가져올 글자를 로컬스토리지에 setItem으로 저장
+            변수 ? localStorage.setItem('로컬', 변수) : null 
+            //변수 ? 사용할 경우 삼항연산자
+            //;제거하고 : null 사용 > 아무것도 하지마라
+        }
+        function saveSession(){
+            let 변수 = document.getElementById('content').value;
+            // alert(변수)
+            document.getElementById('content').value = '';
+
+            //가져올 글자를 세션스토리지에 setItem으로 저장
+            변수 ? sessionStorage.setItem('세션', 변수) : null
+        }
+
+        function loadLocal(){//값 불러오기
+            let 변수 = localStorage.getItem('로컬');
+            변수 ? alert(변수) : alert('아무것도 없습니다')
+            //기본값은 null 값이나 삼항연산자를 사용하므로 값의 결과가
+            //올바를 경우 팝업창의 출력값을 변경할 수 있다
+            
+        }
+        function loadSession(){
+            let 변수 = sessionStorage.getItem('세션')
+            alert(변수);
+
+        }
+        
+        function deleteLocal(){//값 삭제하기, 웹사이트 창에null값 출력됨
+            localStorage.removeItem('로컬');
+            // alert(변수);
+
+        }
+        function deleteSession(){
+            sessionStorage.removeItem('세션');
+            // alert(변수);
+        }
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function 생성자(){
+            this.객체변수A = 'A';
+        }
+
+        //class : 상속 extends
+        class 사람{
+            //constructor(){} > 기본적으로 class 값에 들어가 있음
+            //${this.이름} > class의명칭을 사용하라는 값
+            //this를 안 붙일경우 중복된 명칭일 경우 가장 가까운 명칭이 자동으로 배치됨
+            이름 = '홍길동';
+            나이 = 19;
+
+            소개(){
+                console.log(`안녕하세요${this.이름}입니다.`)
+            }
+        }
+        let 사람A = new 사람()
+        console.log(사람A.이름)
+
+        //class 사람에 있는 코드를 class 화가에 복붙해라
+        class 화가 extends 사람{
+            //constructor(){} > 기본적으로 class 값에 들어가 있음
+
+            //사람에 있는 것 중 더 추가해야하거나, 수정해야하거나, 삭제해야하기때문에 복붙
+            이름 = '홍길동';
+            나이 = 19;
+            직업 = '웹툰작가';
+
+            소개(){
+                console.log(`안녕하세요${this.이름} 입니다. 저는${this.직업}입니다.`)
+            }
+        }
+        let 작가 = new 화가();
+        console.log(작가.직업)
+        작가.소개()
+    </script>
+</body>
+</html>
